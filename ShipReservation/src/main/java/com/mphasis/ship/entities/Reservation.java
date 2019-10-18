@@ -42,6 +42,13 @@ public class Reservation {
 	@ManyToOne
 	@JoinColumn(name="shipId")
 	private Ship ship;
+	private int noOfSeats;
+	public int getNoOfSeats() {
+		return noOfSeats;
+	}
+	public void setNoOfSeats(int noOfSeats) {
+		this.noOfSeats = noOfSeats;
+	}
 	@OneToMany(mappedBy="reservation",fetch=FetchType.EAGER)
 	@JsonIgnore
 	private List<Passenger> passenger=new ArrayList<Passenger>();

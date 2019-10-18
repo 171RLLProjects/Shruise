@@ -34,7 +34,7 @@ public class Passenger {
 	@Column(length=10,nullable=false)
 	private int seatNo;
 	private Date journeyDate;
-	private int noOfSeats;
+	
 	@ManyToOne
 	@JoinColumn(name="bookingId")
 	private Reservation reservation;
@@ -80,12 +80,7 @@ public class Passenger {
 	public void setJourneyDate(Date journeyDate) {
 		this.journeyDate = journeyDate;
 	}
-	public int getNoOfSeats() {
-		return noOfSeats;
-	}
-	public void setNoOfSeats(int noOfSeats) {
-		this.noOfSeats = noOfSeats;
-	}
+	
 	public Reservation getReservation() {
 		return reservation;
 	}
