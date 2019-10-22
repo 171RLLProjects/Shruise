@@ -14,16 +14,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mphasis.ship.util.StringPrefixedSequenceIdGenerator;
 
-enum Status{
-	confirmed, waitinglist, cancelled
-}
+
 @Entity
+@DynamicInsert
 public class Reservation { 
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "bok_seq")
@@ -56,7 +56,8 @@ public class Reservation {
 	private String cardNo;
 	@Column(length=10,nullable=false)
 	private int pin;
-	private Status status;
+	@Column(length=10,nullable=false, columnDefinition="default varchar 'booked'",insertable=false)
+	private String status;
 	public String getBookingId() {
 		return bookingId;
 	}
@@ -99,10 +100,10 @@ public class Reservation {
 	public void setPin(int pin) {
 		this.pin = pin;
 	}
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	
