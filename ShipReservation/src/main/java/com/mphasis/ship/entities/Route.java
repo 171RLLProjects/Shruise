@@ -40,8 +40,7 @@ public class Route {
 	private String duration;
 	@Column(length=20,nullable=false)
 	private double costPerkm;
-	@OneToOne(mappedBy="route")
-	private Ship ship;
+
 	public String getRouteId() {
 		return routeId;
 	}
@@ -78,12 +77,7 @@ public class Route {
 	public void setCostPerkm(double costPerkm) {
 		this.costPerkm = costPerkm;
 	}
-	public Ship getShip() {
-		return ship;
-	}
-	public void setShip(Ship ship) {
-		this.ship = ship;
-	}
+	
 	
 	
 }

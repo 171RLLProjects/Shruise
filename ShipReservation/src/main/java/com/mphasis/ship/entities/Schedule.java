@@ -24,33 +24,27 @@ public class Schedule {
 	        		 @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "SC_"),
 	        		 @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%03d") })
 	private String scheduleId;
-	private Date startDate;
-	private Date endDate;
-	@OneToOne(mappedBy="schedule")
-	private Ship ship;
+	private String startDate;
+	private String endDate;
+
 	public String getScheduleId() {
 		return scheduleId;
 	}
 	public void setScheduleId(String scheduleId) {
 		this.scheduleId = scheduleId;
 	}
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	public Ship getShip() {
-		return ship;
-	}
-	public void setShip(Ship ship) {
-		this.ship = ship;
-	}
+	
 	
 }
