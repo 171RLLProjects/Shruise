@@ -1,0 +1,83 @@
+<form  class="form-inline">
+  <div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+               <h1> Passenger Booking</h1>
+               <br>
+<form name ="form" (ngSubmit)="f.form.valid && addPassenger()" #f="ngForm"  class="form-inline">
+  <div class="form-group">
+  <label for="passengerId"> Passenger Id :</label> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <input type="text" name="passengerId" [(ngModel)]="passenger.passengerId" class="form-controller"><br>
+</div>
+<br><br>
+  <div class="form-group">
+  <label for="passengerName">Passenger Name :</label> &nbsp; &nbsp; &nbsp; 
+  <input type="text" class="form-control" name="passengerName" [(ngModel)]="passenger.passengerName" #passengerName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && passengerName.invalid }" required passengerName /><br>
+  <div *ngIf="f.submitted && passengerName.invalid" class="invalid-feedback">
+      <div *ngIf="passengerName.errors.required">Passenger Name is required</div>
+  </div>  
+</div>
+<br><br>
+<div class="form-group" [class.has-error]="gender.touched && gender.invalid">
+     <label>Gender :</label>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <div class="form-control">
+    <label class="radio-inline">
+        <input type="radio" required #gender=ngModel value="male" name="gender"
+           [(ngModel)]="passenger.gender">Male &nbsp;
+  <label class="radio-inline">
+      <input type="radio" required #gender=ngModel value="female" name="gender" 
+      [(ngModel)]="passenger.gender">Female      
+    </label>
+  </label> 
+  </div>
+</div>
+<br><br>
+  <div class="form-group">
+  <label for="age">Age :</label> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+  <input type="text" class="form-control" name="age" [(ngModel)]="passenger.age" #age="ngModel" [ngClass]="{ 'is-invalid': f.submitted && age.invalid }" required age /><br>
+  <div *ngIf="f.submitted && age.invalid" class="invalid-feedback">
+      <div *ngIf="age.errors.required">Age is required</div>
+  </div>  
+</div>
+<br><br>
+<div class="form-group">
+  <label for="aadharNumber">Aadhar Number :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" class="form-control" name="aadharNumber" [(ngModel)]="passenger.aadharNumber" #aadharNumber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && aadharNumber.invalid }" required aadharNumber /><br>
+  <div *ngIf="f.submitted && aadharNumber.invalid" class="invalid-feedback">
+      <div *ngIf="aadharNumber.errors.required">Aadhar Number is required</div>
+  </div> 
+</div>
+<br><br>
+<div class="form-group">
+  <label for="seatNo">Seat Number :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" class="form-control" name="seatNo" [(ngModel)]="passenger.seatNo"  #seatNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && seatNo.invalid }" required seatNo /><br>
+  <div *ngIf="f.submitted && seatNo.invalid" class="invalid-feedback">
+      <div *ngIf="seatNo.errors.required">Seat Number is required</div>
+  </div> 
+</div>
+<br><br>
+<div class="form-group">
+  <label for="journeyDate">Journey Date :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" class="form-control" name="journeyDate" [(ngModel)]="passenger.journeyDate"  #journeyDate="ngModel" 
+  [ngClass]="{ 'is-invalid': f.submitted && journeyDate.invalid }" required journeyDate />
+  <div *ngIf="f.submitted && journeyDate.invalid" class="invalid-feedback">
+      <div *ngIf="journeyDate.errors.required">Journey Date is required</div> 
+  </div>  
+</div>
+<br><br>
+<div class="form-group">
+  <label for="Reservation" class="control-label">Reservation :</label> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <select id="reservation" required #reservation="ngModel" name="reservation"   [(ngModel)]="bookingId" 
+   class="form-control">
+  <option value="-1">Select id</option>
+  <option *ngFor='let reserve of reservation' [value]="reserve.bookingId">{{reserve.bookingId}}</option>
+</select>
+</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add Passenger"  class="form-controller"> 
+            </form>
+        </div>
+      </div>
+    </div>
+</div>

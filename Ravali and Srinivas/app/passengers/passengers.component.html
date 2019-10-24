@@ -1,0 +1,24 @@
+<table>
+  <tr>
+      <td>Passenger Id </td>
+      <td>Passenger Name </td>
+      <td>Passenger Gender </td>
+      <td>Passenger Age</td>
+      <td>Aadhar Number</td>
+      <td>Seat Number</td>
+      <td>Journey Date</td>
+      <td>Booking Id</td>
+  </tr>
+  <tr *ngFor='let passenger of passengers'>
+      <td>{{passenger.passengerId}}</td>
+      <td>{{passenger.passengerName}}</td>
+      <td>{{passenger.gender}}</td>
+      <td>{{passenger.age}}</td>
+      <td>{{passenger.aadharNumber}}</td>
+      <td>{{passenger.seatNo}}</td>
+      <td>{{passenger.journeyDate}}</td>
+      <td>{{passenger.reservation}}</td>
+      <td><button class="btn btn-primary" (click)="edit(passenger)">Edit</button></td>
+  <td><button class="btn btn-primary" (click)="delete(passenger)">Delete</button></td>
+  </tr>
+</table>

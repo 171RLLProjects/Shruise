@@ -1,0 +1,27 @@
+<table>
+  <tr>
+      <td>Reservation Id </td>
+      <td>User </td>
+      <td>Total Fare</td>
+      <td>Ship</td>
+      <td>Number of Seats</td>
+      <td>Passengers</td>
+      <td>Card Number</td>
+      <td>Pin Number</td>
+      <td>Status</td>
+
+  </tr>
+  <tr *ngFor='let reservation of reservations'>
+      <td>{{reservation.bookingId}}</td>
+      <td>{{reservation.user}}</td>
+      <td>{{reservation.totalFare}}</td>
+      <td>{{reservation.ship}}</td>
+      <td>{{reservation.noOfSeats}}</td>
+      <td>{{reservation.passenger}}</td>
+      <td>{{reservation.cardNo}}</td>
+      <td>{{reservation.pin}}</td>
+      <td>{{reservation.status}}</td>
+      <td><button class="btn btn-primary" (click)="cancel(reservation)">Edit</button></td>
+
+  </tr>
+</table>

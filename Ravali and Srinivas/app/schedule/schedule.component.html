@@ -1,0 +1,15 @@
+
+<table>
+  <tr>
+    <td>Schedule Id</td>
+    <td>Start Date</td>
+    <td>End Date</td>
+  </tr>
+  <tr *ngFor='let sch of schedule'>
+    <td>{{sch.scheduleId}}</td>
+    <td>{{sch.startDate}}</td>
+    <td>{{sch.endDate}}</td>
+    <td><button class="btn btn-primary"(click)="edit(sch)">Edit</button></td>
+    <td><button class="btn btn-primary"(click)="delete(sch)">Delete</button></td>
+  </tr>
+</table>
