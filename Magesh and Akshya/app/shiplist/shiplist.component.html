@@ -1,0 +1,23 @@
+<table>
+    <tr>
+      <td>ShipId</td>
+      <td>ShipName</td>
+      <td>Route</td>
+      <td>Schedule</td>
+      <td>seatingCapacity</td>
+      <td>reserveCapacity</td>
+      <td>wListCapacity</td>
+      
+      
+    </tr>
+    <tr *ngFor='let ship of ships'>
+    
+        <td>{{ship.ShipId}}</td>
+        <td>{{ship.ShipName }}</td>
+        <td>{{ship.route}}</td>
+        <td>{{ship.schedule}}</td>
+        <td>{{ship.seatingCapacity}}</td>
+           <td>{{ship.reserveCapacity}}</td>
+            <td>{{ship.wListCapacity}}</td>
+       
+      </table>

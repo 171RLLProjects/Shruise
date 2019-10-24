@@ -1,0 +1,44 @@
+<form (ngSubmit)="addship()" class="form-inline">
+ 
+  <div class="form-group">
+    <label>Ship Id</label>
+    <input type="number" name="shipId" [(ngModel)]="ship.shipId" disabled >
+    </div>
+    <br/><br/><br/><br/>
+
+<div class="form-group">
+<label >shipName</label>
+<input type="text" name="ShipName" [(ngModel)]="ship.shipName" class="form-controller"><br/><br/>
+</div> 
+
+<div class="form-group">
+  <label>Route</label>
+  <input type="text" name="route" [(ngModel)]="ship.route" class="form-controller"><br/><br/>
+  </div>
+  <div class="form-group">
+  <label>schedule</label>
+  <input type="text" name="schedule" [(ngModel)]="ship.schedule" class="form-controller"><br/><br/>
+  </div>
+ 
+  <div class="form-group">
+  <label>seatingCapacity </label>
+  <input type="number" name="seatingCapacity" [(ngModel)]="ship.seatingCapacity" class="form-controller">
+  <br/><br/>
+ </div>
+ 
+ <div class="form-group">
+  <label>reserveCapacity </label>
+  <input type="number" name="phoneNo" [(ngModel)]="ship.reserveCapacity" class="form-controller">
+  <br/><br/>
+ </div>
+ 
+<div class="form-group">
+  <label>wListCapacity </label>
+  <input type="number" name="address" [(ngModel)]="ship.wListCapacity" class="form-controller">
+  <br/><br/>
+ </div> 
+ 
+ <div class="form-group">
+  <input type="submit" value="ship">
+</div>
+</form>

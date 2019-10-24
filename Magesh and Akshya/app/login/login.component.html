@@ -1,0 +1,56 @@
+<div class="row">
+ 
+    <div class="col-md-6 col-md-offset-2">
+      <h1> Login </h1>
+      <form name="form" (ngSubmit)="f.form.valid && login()"#f="ngForm" novalidate>
+       
+       
+            <div class="form-group">
+                    <label for="userId">UserId</label>
+                    <input type="text" class="form-control" name="userId" [(ngModel)]="userprofile.userId" #userId="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && userId.invalid }" required/>
+                </div>
+                <div class="form-group">
+                        <label for="pass">Password</label>
+                        <input type="password" class="form-control" name="pass" [(ngModel)]="userprofile.pass" #pass="ngModel" [ngClass]="{ 'is-invalid': f.submitted && pass.invalid }" required />
+                        <div *ngIf="f.submitted && pass.invalid" class="invalid-feedback">
+                            <div *ngIf="pass.errors.required">pass is required</div>
+                        </div>
+                    </div>
+
+
+          <div class="form-group">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+      </form>
+    </div>
+  </div>
+
+<!-- <div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3>SignIn</h3>
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                        <label for="userId">userId</label>
+                        <input type="text" class="form-control" name="userId" [(ngModel)]="ship.userId" #userId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userId.invalid }" required />
+                        <div *ngIf="f.submitted && userId.invalid" class="invalid-feedback">
+                            <div *ngIf="userId.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="ship.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                            <div *ngIf="password.errors.required">Password is required</div>
+                            <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">SignIn</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
