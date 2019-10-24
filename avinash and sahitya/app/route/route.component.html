@@ -1,0 +1,21 @@
+
+<table>
+  <tr>
+    <td>Route Id</td>
+    <td>Distance</td>
+    <td>Duration</td>
+    <td>CostPerKm</td>
+    <td>Source</td>
+    <td>Destination</td>
+  </tr>
+  <tr *ngFor='let rou of routes'>
+    <td>{{rou.routeId}}</td>
+    <td>{{rou.distance}}</td>
+    <td>{{rou.duration}}</td>
+    <td>{{rou.costPerKm}}</td>
+    <td>{{rou.source.locName}}</td>
+    <td>{{rou.destination.locName}}</td>
+    <td><button class="btn btn-primary"(click)="edit(rou)">Edit</button></td>
+    <td><button class="btn btn-primary"(click)="delete(rou)">Delete</button></td>
+</tr>
+</table>

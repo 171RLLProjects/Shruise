@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <td>Ship Id</td>
+    <td>Ship Name</td>
+    <td>Route</td>
+    <td>Schedule</td>
+    <td>SeatingCapacity</td>
+    <td>ReserveCapacity</td>
+    <td>WListCapacity</td>
+    
+  </tr>
+  <tr *ngFor='let ship of ship'>
+    <td>{{ship.shipId}}</td>
+    <td>{{ship.shipName}}</td>
+    <td>{{ship.route.routeId}}</td>
+    <td>{{ship.schedule.scheduleId}}</td>
+    <td>{{ship.seatingCapacity}}</td>
+    <td>{{ship.reserveCapacity}}</td>
+    <td>{{ship.wListCapacity}}</td>
+   
+    <td><button class="btn btn-primary"(click)="edit(ship)">Edit</button></td>
+    <td><button class="btn btn-primary"(click)="delete(ship)">Delete</button></td>
+
+  </tr>
+</table>

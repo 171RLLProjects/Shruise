@@ -1,0 +1,17 @@
+<form (ngSubmit)="addSchedule()" class="form-inline">
+  <div class="form-group">
+  <label>Schedule Id</label><br>
+  <input type="text" name="scheduleId" [(ngModel)]="schedule.scheduleId" class="form-control"><br>
+  </div>
+  <div class="form-group">
+  <label>Start Date</label><br>
+  <input type="text" name="startDate" [(ngModel)]="schedule.startDate" class="form-control"><br>
+  </div>
+  <div class="form-group">
+    <label>End Date</label><br>
+    <input type="text" name="endDate" [(ngModel)]="schedule.endDate" class="form-control"><br>
+    </div>
+  <div class="form-group">
+  <input type="submit" value="addSchedule"  class="form-control"><br>
+  </div>
+  </form>

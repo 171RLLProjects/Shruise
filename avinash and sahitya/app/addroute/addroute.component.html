@@ -1,0 +1,42 @@
+<form (ngSubmit)="addRoute()" class="form-inline">
+  <div class="form-group">
+  <label>Route Id</label>
+  <input type="text" name="routeId" [(ngModel)] = "route.routeId" class="form-control"><br/><br/>
+</div>
+
+  <div class="form-group">
+  <label>Distance</label>
+  <input type="text" name="distance" [(ngModel)] = "route.distance" class="form-control"><br/><br/>
+</div>
+
+<div class="form-group">
+  <label>Duration</label>
+  <input type="text" name="duration" [(ngModel)] = "route.duration" class="form-control"><br/><br/>
+</div>
+
+<div class="form-group">
+  <label>CostPerKm</label>
+  <input type="text" name="costPerKm" [(ngModel)] = "route.costPerKm" class="form-control"><br/><br/>
+</div>
+
+<div class="form-group">
+  <label for="Location" class="control-label">Source</label>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <select id="location" required #location="ngModel" name="location1" [(ngModel)]="locId1" class="form-control">
+    <option value="-1"> Select Location1</option>
+    <option *ngFor='let loc of locations' [value]="loc.locId">{{loc.locName}}</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="Location" class="control-label">Destination</label>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <select id="location" required #location="ngModel" name="location2" [(ngModel)]="locId2" class="form-control" placeholder="select Location">
+    <option value="-1"> Select Location2</option>
+    <option *ngFor='let loc of locations' [value]="loc.locId">{{loc.locName}}</option>
+  </select>
+</div>
+
+
+<input type="submit" value="AddRoute">
+</form>
