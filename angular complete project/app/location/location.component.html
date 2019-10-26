@@ -1,0 +1,14 @@
+<table class=table>
+  <tr>
+    <th>Location Code</th>
+    <th>Location Name</th>
+    
+  </tr>
+  <tr *ngFor='let loc of location'>
+    <td>{{loc.locId}}</td>
+    <td>{{loc.locName}}</td>
+    <td><button class="btn btn-primary"(click)="edit(loc)">Edit</button></td>
+    <td><button class="btn btn-primary"(click)="delete(loc)">Delete</button></td>
+
+  </tr>
+</table>

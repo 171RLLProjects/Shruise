@@ -1,0 +1,24 @@
+<table class=table>
+  <tr>
+      <th>Passenger Id </th>
+      <th>Passenger Name </th>
+      <th>Passenger Gender </th>
+      <th>Passenger Age</th>
+      <th>Aadhar Number</th>
+    
+      <th>Journey Date</th>
+      <th>Booking Id</th>
+  </tr>
+  <tr *ngFor='let passenger of passengers'>
+      <td>{{passenger.passengerId}}</td>
+      <td>{{passenger.passengerName}}</td>
+      <td>{{passenger.gender}}</td>
+      <td>{{passenger.age}}</td>
+      <td>{{passenger.aadharNumber}}</td>
+     
+      <td>{{passenger.journeyDate}}</td>
+      <td>{{passenger.reservation.bookingId}}</td>
+      
+ 
+  </tr>
+</table>

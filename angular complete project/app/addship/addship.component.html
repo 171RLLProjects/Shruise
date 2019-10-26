@@ -1,0 +1,66 @@
+<div class="row">
+        <div class="col-md-6 offset-md-3">
+                <h1>Ship</h1>
+<form name="form" (ngSubmit)="f.form.valid && addShip()" #f="ngForm" novalidate>
+    <div class="form-group">
+        <label for="shipId">Ship Id</label>
+        <input type="text" class="form-control" name="shipId" [(ngModel)]="ship.shipId" disabled />
+        
+    </div>
+
+    <div class="form-group">
+        <label for="shipId">Ship Name</label>
+        <input type="text" class="form-control" name="shipName" [(ngModel)]="ship.shipName" #shipName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && shipName.invalid }" required />
+        <div *ngIf="f.submitted && shipName.invalid" class="invalid-feedback">
+            <div *ngIf="shipName.errors.required">Ship Name is required</div>
+        </div>
+    </div>
+
+<div class="form-group" [class.has-error]="route.touched && route.invalid">
+<label for="route" class="control-label">Route</label>
+<select id="route" required #route="ngModel" name="route" [(ngModel)]="routeId" class="form-control">
+<option *ngFor="let route of routes" [value]="route.routeId">{{route.routeId}}
+</option>
+</select>
+<span class="help-block" *ngIf="route.touched && route.invalid">Route is required
+</span>
+</div>
+
+<div class="form-group" [class.has-error]="schedule.touched && schedule.invalid">
+<label for="schedule" class="control-label">Route</label>
+<select id="schedule" required #schedule="ngModel" name="schedule" [(ngModel)]="scheduleId" class="form-control">
+<option *ngFor="let schedule of schedules" [value]="schedule.scheduleId">{{schedule.scheduleId}}
+</option>
+</select>
+<span class="help-block" *ngIf="schedule.touched && schedule.invalid">Schedule is required
+</span>
+</div>
+
+<!-- <div class="form-group">
+<label for="seatingCapacity">Seating Capacity</label>
+<input type="text" class="form-control" name="seatingCapacity" [(ngModel)]="ship.seatingCapacity" #seatingCapacity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && seatingCapacity.invalid }" required />
+<div *ngIf="f.submitted && seatingCapacity.invalid" class="invalid-feedback">
+    <div *ngIf="seatingCapacity.errors.required">Seating Capacity is required</div>
+</div>
+</div> -->
+
+<div class="form-group">
+<label for="reserveCapacity">Reserve Capacity</label>
+<input type="text" class="form-control" name="reserveCapacity" [(ngModel)]="ship.reserveCapacity" #reserveCapacity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reserveCapacity.invalid }" required />
+<div *ngIf="f.submitted && reserveCapacity.invalid" class="invalid-feedback">
+    <div *ngIf="reserveCapacity.errors.required">Reserve Capacity is required</div>
+</div>
+</div>
+
+<div class="form-group">
+<label for="wListCapacity">WList Capacity</label>
+<input type="text" class="form-control" name="wListCapacity" [(ngModel)]="ship.wListCapacity" #wListCapacity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && wListCapacity.invalid }" required />
+<div *ngIf="f.submitted && wListCapacity.invalid" class="invalid-feedback">
+    <div *ngIf="wListCapacity.errors.required">WList Capacity is required</div>
+</div>
+</div>
+<div class="form-group">
+<button class="btn btn-primary">Add Ship</button>
+</div>
+</form> 
+

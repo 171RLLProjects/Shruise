@@ -1,0 +1,38 @@
+<head>
+    <style>
+    table, th, td {
+      border: 1px solid blue;
+      border-collapse: separate;
+     
+    }
+     
+    </style>
+    </head>
+    <table class=table width=85%>
+
+  <tr>
+      <th>Reservation Id </th>
+      <th>User </th>
+      <th>Total Fare</th>
+      <th>Ship</th>
+      <th>Number of Seats</th>
+    
+      <th>Card Number</th>
+    
+      <th>Status</th>
+
+  </tr>
+  <tr *ngFor='let reservation of reservations'>
+      <td>{{reservation.bookingId}}</td>
+      <td>{{reservation.user.userId}}</td>
+      <td>{{reservation.totalFare}}</td>
+      <td>{{reservation.ship.shipName}}</td>
+      <td>{{reservation.noOfSeats}}</td>
+    
+      <td>{{reservation.cardNo}}</td>
+     
+      <td>{{reservation.status}}</td>
+      <td><button class="btn btn-primary" (click)="cancel(reservation)">Edit</button></td>
+
+  </tr>
+</table>

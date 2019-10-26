@@ -1,0 +1,71 @@
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3>Registration Form</h3>
+                <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                    <!-- <div class="form-group">
+                        <label for="userId">UserId</label>
+                        <input type="text" class="form-control" name="userId" [(ngModel)]="userprofile.userId"
+                         #userId="ngModel" disabled />
+                    </div> -->
+                    <div class="form-group">
+                        <label for="userName">User Name</label>
+                        <input type="text" class="form-control" name="userName" [(ngModel)]="userprofile.userName" #userName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userName.invalid }" required />
+                        <div *ngIf="f.submitted && userName.invalid" class="invalid-feedback">
+                            <div *ngIf="userName.errors.required">User Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password</label>
+                        <input type="password" class="form-control" name="pass" [(ngModel)]="userprofile.pass" #pass="ngModel" [ngClass]="{ 'is-invalid': f.submitted && pass.invalid }" minlength="4" required />
+                        <div *ngIf="f.submitted && pass.invalid" class="invalid-feedback">
+                            
+                            <div *ngIf="pass.errors.required">pass is required</div>
+                        
+                            <div *ngIf="pass.errors.minlength">pass must be more than 4 characters</div>
+                           
+                        
+                        
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                       <input type="radio" name="gender" [(ngModel)]="userprofile.gender" #gender="ngModel"  value="male" required >Male
+                        <input type="radio"  name="gender" [(ngModel)]="userprofile.gender" #gender="ngModel" value="female" required >Female   
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phoneNo">phoneNo</label>
+                        <input type="phoneNo" class="form-control" name="phoneNo" [(ngModel)]="userprofile.phoneNo" #phoneNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phoneNo.invalid }" minlength="10" maxlength="10" required />
+                        <div *ngIf="f.submitted && phoneNo.invalid" class="invalid-feedback">
+                            <div *ngIf="phoneNo.errors.required">phoneNo is required</div>
+                           
+                            <div *ngIf="phoneNo.errors.minlength">phoneNo must be at least 10 characters</div>
+                        <div *ngIf="phoneNo.errors.maxlength">phoneNo must be at least 10 characters</div>
+                        
+                        
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">address</label>
+                        <input type="address" class="form-control" name="address" [(ngModel)]="userprofile.address" #address="ngModel" [ngClass]="{ 'is-invalid': f.submitted && address.invalid }" required />
+                        <div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
+                            <div *ngIf="address.errors.required">address is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="age" class="form-control" name="age" [(ngModel)]="userprofile.age" #age="ngModel" [ngClass]="{ 'is-invalid': f.submitted && age.invalid }" required />
+                        <div *ngIf="f.submitted && age.invalid" class="invalid-feedback">
+                            <div *ngIf="age.errors.required">Age is required</div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>

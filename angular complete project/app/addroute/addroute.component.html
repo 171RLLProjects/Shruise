@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+            <h1>Route</h1>
+<form name="form" (ngSubmit)="f.form.valid && addRoute()" #f="ngForm" novalidate>
+    <div class="form-group">
+        <label for="routeId">Route Id</label>
+        <input type="text" class="form-control" name="routeId" [(ngModel)]="route.routeId" disabled />
+        
+    </div>
+
+    <div class="form-group">
+        <label for="distance">Distance</label>
+        <input type="text" class="form-control" name="distance" [(ngModel)]="route.distance" #distance="ngModel" [ngClass]="{ 'is-invalid': f.submitted && distance.invalid }" required />
+        <div *ngIf="f.submitted && distance.invalid" class="invalid-feedback">
+            <div *ngIf="distance.errors.required">Distance is required</div>
+        </div>
+    </div> 
+
+    <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="text" class="form-control" name="duration" [(ngModel)]="route.duration" #duration="ngModel" [ngClass]="{ 'is-invalid': f.submitted && duration.invalid }" required />
+        <div *ngIf="f.submitted && duration.invalid" class="invalid-feedback">
+            <div *ngIf="duration.errors.required">Duration is required</div>
+        </div>
+    </div> 
+
+    <div class="form-group">
+        <label for="costPerkm">CostPerKm</label>
+        <input type="text" class="form-control" name="costPerKm" [(ngModel)]="route.costPerkm" #costPerKm="ngModel" [ngClass]="{ 'is-invalid': f.submitted && costPerKm.invalid }" required />
+        <div *ngIf="f.submitted && costPerkm.invalid" class="invalid-feedback">
+            <div *ngIf="costPerkm.errors.required">CostPerKm is required</div>
+        </div>
+    </div> 
+
+    <div class="form-group" [class.has-error]="location.touched && location.invalid">
+        <label for="location" class="control-label">Source</label>
+        <select id="location" required #location="ngModel" name="location1" [(ngModel)]="locId1" class="form-control">
+        <option *ngFor="let loc of locations" [value]="loc.locId">{{loc.locName}}
+        </option>
+        </select>
+        <span class="help-block" *ngIf="location.touched && location.invalid">Source is required
+        </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="location.touched && location.invalid">
+            <label for="location" class="control-label">Destination</label>
+            <select id="location" required #location="ngModel" name="location2" [(ngModel)]="locId2" class="form-control">
+            <option *ngFor="let loc of locations" [value]="loc.locId">{{loc.locName}}
+            </option>
+            </select>
+            <span class="help-block" *ngIf="location.touched && location.invalid">Destination is required
+            </span>
+            </div>
+<div class="form-group">
+    <button class="btn btn-primary">Add Route</button>
+    </div>
+    </form>
+</div>
+
+</div>

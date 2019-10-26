@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+table, th, td {
+border: 1pxsolidblack;
+border-collapse: collapse;
+ 
+}
+ 
+</style>
+</head>
+
+
+
+ 
+<table height=100% width=80%>
+ 
+<tr>
+<td>Ship Id</td>
+<td>Ship Name</td>
+<td>Source</td>
+<td>Destination</td>
+<td>Start Date</td>
+<td>End Date</td>
+<!-- <td>SeatingCapacity</td> -->
+<td>ReserveCapacity</td>
+<td>WListCapacity</td>
+</tr>
+ 
+<tr *ngFor='let ship of ships'>
+<td>{{ship.shipId}}</td>
+<td>{{ship.shipName}}</td>
+<td>{{ship.route.source.locName}}</td>
+<td>{{ship.route.destination.locName}}</td>
+<td>{{ship.schedule.startDate}}</td>
+<td>{{ship.schedule.endDate}}</td>
+<!-- <td>{{ship.seatingCapacity}}</td> -->
+<td>{{ship.reserveCapacity}}</td>
+<td>{{ship.wListCapacity}}</td>
+<td><button class="btn btn-primary" (click)="book()">Book Ticket</button></td>
+</tr>
+
+</table>
+</html>
+

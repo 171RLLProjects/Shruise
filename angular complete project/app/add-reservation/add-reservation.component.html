@@ -1,0 +1,61 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3>Booking Details</h3>
+                <form name="form" (ngSubmit)="f.form.valid && addReservation()" #f="ngForm" novalidate>
+
+                              <div class="form-group">
+                                    <label for="Reservation" class="control-label">User</label> &nbsp; &nbsp; &nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select id="user" required #user="ngModel" name="user" [(ngModel)]="userId" class="form-control">
+                                        <option value="-1">Select id</option>
+                                        <option *ngFor='let user of users' [value]="user.userId"> {{user.userName}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="Ship" class="control-label"> Ship Details :</label> &nbsp; &nbsp; &nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <select id="ship" required #ship="ngModel" name="ship" [(ngModel)]="shipId"
+                                            class="form-control">
+                                            <option value="-1">Select ship</option>
+                                            <option *ngFor='let ship of ships' [value]="ship.shipId">{{ship.shipName}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="noOfSeats">No of Passengers</label>
+                                            <input type="text" name="noOfSeats" [(ngModel)] = "reservation.noOfSeats" class="form-control"><br/><br/>
+                                          </div>
+                                          <div class="form-group">
+                                                <label>Enter Card Number</label>
+                                               
+                                               
+                                               
+                             <input type="text" name="cardNo" [(ngModel)] = "reservation.cardNo" class="form-control" minlength="16" maxlength="16"><br/><br/>
+                            
+                             <div *ngIf="cardNo.errors.required">CardNO is required</div>
+      <div *ngIf="cardNo.errors.minlength">CardNo must be at least 16 characters</div>
+  <div *ngIf="cardNo.errors.maxlength">CardNo must be at least 16 characters</div>
+                            
+                            
+                            </div>        
+                                              <div class="form-group">
+                                                    <label>Enter Pin</label>
+                                                    <input type="password" name="pin" [(ngModel)] = "reservation.pin" class="form-control" minlength="4" maxlength="4"><br/><br/>
+                                                  
+                             <div *ngIf="pin.errors.required">PinNumber is required</div>
+                             <div *ngIf="pin.errors.minlength">PinNumber must be 4 characters</div>
+                         <div *ngIf="pin.errors.maxlength">PinNumber must be 4 characters</div>
+                                                
+                                                
+                                                
+                                                </div>
+                                                  
+                                                      <input type="submit" value="Continue Booking">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

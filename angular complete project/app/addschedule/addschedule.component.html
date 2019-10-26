@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+            <h1>Schedule</h1>
+        <form name="form" (ngSubmit)="f.form.valid && addSchedule()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="scheduleId">Schedule Id</label>
+                <input type="text" class="form-control" name="scheduleId" [(ngModel)]="schedule.scheduleId" disabled />
+
+            </div>
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="text" class="form-control" name="startDate" [(ngModel)]="schedule.startDate"
+                    #startDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && startDate.invalid }" required />
+                <div *ngIf="f.submitted && startDate.invalid" class="invalid-feedback">
+                    <div *ngIf="startDate.errors.required">Start Date is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input type="text" class="form-control" name="endDate" [(ngModel)]="schedule.endDate" #endDate="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && endDate.invalid }" required />
+                <div *ngIf="f.submitted && endDate.invalid" class="invalid-feedback">
+                    <div *ngIf="endDate.errors.required">End Date is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary">Add Schedule</button>
+            </div>
+        </form>
+    </div>
+</div>

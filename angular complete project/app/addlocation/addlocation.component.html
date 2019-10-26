@@ -1,0 +1,25 @@
+<div class="row">
+        <div class="col-md-6 offset-md-3">
+                <h1>Locattion</h1>
+<form name="form" (ngSubmit)="f.form.valid && addLocation()" #f="ngForm" novalidate>
+    <div class="form-group">
+        <label for="locId">Location Id</label>
+        <input type="text" class="form-control" name="locId" [(ngModel)]="location.locId" disabled />
+        
+    </div>
+ 
+    <div class="form-group">
+      <label for="locName">Location Name</label>
+      <input type="text" class="form-control" name="locName" [(ngModel)]="location.locName" #locName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && locName.invalid }" required />
+      <div *ngIf="f.submitted && locName.invalid" class="invalid-feedback">
+          <div *ngIf="locName.errors.required">Location Name is required</div>
+      </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">Add Location</button>
+    </div>
+    </form>
+</div>
+
+</div>
+
